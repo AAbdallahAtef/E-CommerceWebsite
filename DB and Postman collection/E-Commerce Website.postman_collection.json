@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "a57c9a4c-3696-491d-845e-0a0e815a4937",
+		"name": "E-Commerce Website",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27160872"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ali sayed\",\r\n    \"password\": \"12345678\",\r\n    \"email\": \"hanym@gmail.com\",\r\n    \"PhoneNumber\": \"01120990433\",\r\n    \"Address\": \"5   abbas el akaad \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"12345678\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Add Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "95f12184faa79b3ec64202b7d453cd94",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Redmi Note 13",
+											"type": "text"
+										},
+										{
+											"key": "Description",
+											"value": "Xiaomi Redmi Note 13 Pro Dual Sim 8GB RAM 256GB 5G (Onyx Black)",
+											"type": "text"
+										},
+										{
+											"key": "Price",
+											"value": "12000",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8888/products/addProduct",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"products",
+										"addProduct"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update  Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Token",
+										"value": "95f12184faa79b3ec64202b7d453cd94",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Redmi Note 11",
+											"type": "text"
+										},
+										{
+											"key": "Description",
+											"value": "Redmi Note11, 6GB RAM, 128GB ROM - Graphite Gray",
+											"type": "text"
+										},
+										{
+											"key": "Price",
+											"value": "6000",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Faculity/4th year/Second Term/SW-2/Project/final project files/Pics/REDMI NOTE 11(2).jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8888/products//updateProduct/43",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"products",
+										"",
+										"updateProduct",
+										"43"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete  Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "95f12184faa79b3ec64202b7d453cd94",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8888/products//deleteProduct/42",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"products",
+										"",
+										"deleteProduct",
+										"42"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "View Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8888/products/viewProducts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"products",
+										"viewProducts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Place Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Token",
+										"value": "63d52c9437a1d19b775948d91344a19c",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8888/orders/placeOrder/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"orders",
+										"placeOrder",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Order",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Token",
+										"value": "63d52c9437a1d19b775948d91344a19c",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8888/orders/getOrderDetails/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"orders",
+										"getOrderDetails",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Token",
+										"value": "63d52c9437a1d19b775948d91344a19c",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8888/orders/cancelOrder/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"orders",
+										"cancelOrder",
+										"25"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add Product to Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "f5c6ce2ab99e0bf1abf9f58cfa82d262",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Product_Id\": \"43\",\r\n    \"Quantity\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/carts/addProductToCart/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"carts",
+								"addProductToCart",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Products in Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "f5c6ce2ab99e0bf1abf9f58cfa82d262",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8888/carts/getCartDetails/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"carts",
+								"getCartDetails",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product from Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Token",
+								"value": "f5c6ce2ab99e0bf1abf9f58cfa82d262",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Product_Id\": \"41\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/carts/deleteProductFromCart/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"carts",
+								"deleteProductFromCart",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Customer's Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Token",
+								"value": "63d52c9437a1d19b775948d91344a19c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8888/carts/clearCustomer'sCart/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"carts",
+								"clearCustomer'sCart",
+								"25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Payment By Cash",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "63d52c9437a1d19b775948d91344a19c",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8888/payment/paymentByCash/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payment",
+								"paymentByCash",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment By Credit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "63d52c9437a1d19b775948d91344a19c",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Card_Number\": \"1234567891012134\",\r\n    \"Card_Tybe\": \"master card\",\r\n    \"Exp_Date\": \"02/23\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/payment/paymentByCredit/24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payment",
+								"paymentByCredit",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipping",
+			"item": [
+				{
+					"name": "AddShippingInfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "97d5d4ac073912bc8bc73380a1470dba",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Shipping_Region_Name\": \"cairo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/shipping/addShippingInfo/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"shipping",
+								"addShippingInfo",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateShippingInfo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Token",
+								"value": "97d5d4ac073912bc8bc73380a1470dba",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Shipping_Region_Name\": \"tanta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/shipping/updateShippingInfo/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"shipping",
+								"updateShippingInfo",
+								"25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
